@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Tailwindcss Navbar</title>
+    <!-- 
+        - Tailwind CSS CDN Link
+     -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 
+        - Google fonts (Inter)
+     -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- 
+        - Font Awesome CDN link
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--  -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w-full h-screen gap-5 bg-stone-100">
+        <nav
+            class="relative bg-violet-200 flex flex-col h-[8ch] py-3 md:flex-row justify-between md:items-center lg:px-36 md:px-28 sm:px-10 px-6 md:gap-0">
+            <!-- Logo section -->
+            <a href="/index.html" class="text-decoration-none text-2xl font-bold text-indigo-700 mr-12 flex mb-0 md:mt-0 mt-3">
+                <!-- <img src="./img/logo.png" alt="logo" class="w-14 h-14 object-contain object-center"> -->
+                LOGO
+            </a>
+            <!-- Nav links and buttons -->
+            <div id="navItems"
+                class="flex-1 hidden md:flex flex-col md:flex-row gap-x-5 gap-y-2 md:items-center md:p-0 sm:p-4 p-4 justify-between md:bg-transparent sm:bg-blue-50 bg-blue-50 md:shadow-none sm:shadow-md shadow-md rounded-md">
+                <ul
+                    class="list-none flex md:items-center sm:items-start items-start gap-x-5 gap-y-1 flex-wrap md:flex-row sm:flex-col flex-col">
+                    <li>
+                        <a href="/index.html"
+                            class="text-decoration-none text-lg font-medium text-stone-800 hover:text-stone-600">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/index.html"
+                            class="text-decoration-none text-lg font-normal text-stone-800 hover:text-stone-600">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/index.html"
+                            class="text-decoration-none text-lg font-normal text-stone-800 hover:text-stone-600">
+                            Services
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/index.html"
+                            class="text-decoration-none text-lg font-normal text-stone-800 hover:text-stone-600">
+                            Portfolio
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/index.html"
+                            class="text-decoration-none text-lg font-normal text-stone-800 hover:text-stone-600">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+                <div
+                    class="flex md:items-center sm:items-start items-start gap-x-5 gap-y-2 flex-wrap md:flex-row sm:flex-col flex-col text-base font-medium text-neutral-800">
+                    <a href="#"
+                        class="bg-indigo-600 rounded-full px-5 py-1.5 flex items-center justify-center text-stone-100 text-base font-normal">
+                        Create Account
+                    </a>
+                </div>
+            </div>
+            <button id="btnToggle" class="block md:hidden absolute top-6 right-10">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+    </div>
+
+
+    <!-- JS -->
+    <script>
+        const btnToggle = document.getElementById('btnToggle');
+        const nav = document.getElementById('navItems');
+
+        // Create a new element
+        const iconElement = document.createElement('i');
+
+        // Click button click event listener
+        btnToggle.addEventListener('click', () => {
+            nav.classList.toggle('flex');
+            nav.classList.toggle('hidden');
+
+            if (nav.classList.contains('flex')) {
+                // Set the inner HTML of the element to the desired HTML snippet
+                btnToggle.innerHTML = '<i class="fas fa-close text-2xl"></i>';
+
+                // Append the new element to an existing element in the DOM (e.g., with id 'container')
+                document.getElementById('btnToggle').appendChild(iconElement);
+
+            } else {
+                // Set the inner HTML of the element to the desired HTML snippet
+                btnToggle.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
+
+                // Append the new element to an existing element in the DOM (e.g., with id 'container')
+                document.getElementById('btnToggle').appendChild(iconElement);
+            }
+        })
+    </script>
+
+</body>
+
+</html>
